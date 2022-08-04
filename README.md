@@ -1,4 +1,4 @@
-# DiscordJS-Starter
+# StarterDiscordJS
 A template repository for quick discordjs bot setup.
 
 ## Features:
