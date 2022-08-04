@@ -1,5 +1,5 @@
 {
-  "name": "discordjsstarter",
+  "name": "starterdiscordjs",
   "description": "A Discord.js Bot Template",
   "version": "1.0.0",
   "main": "src/index.js",
