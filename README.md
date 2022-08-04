@@ -2,20 +2,23 @@
 A template repository for quick discordjs bot setup.
 
 ## Features:
-- [pm2](https://pm2.keymetrics.io/) for auto-restarts and 24/7 bot upkeep.
-- [standard-version](https://www.npmjs.com/package/standard-version) for automatic changelogging.
+- [Docker](https://www.docker.com/products/docker-desktop/) for easy deployment and automatic restarting.
+- [Release Please](https://github.com/googleapis/release-please) for automatic changelogging.
 - Basic event/command setup.
 
 ## How To Setup:
-1. Click `Use this template` and create your own repo.
-2. run `npm install`.
-3. Create a [discord bot application](https://discord.com/developers/applications).
-4. Put appropriate bot info in `config.json`.
-5. Run `npm run deployCommands` to deploy slash commands.
-6. If `pm2` is installed, run `npm run start-server`, else run `npm start`.
+1. Click `Use this template` and create your own repo. 
+2. Create a [discord bot application](https://discord.com/developers/applications).
+3. Put appropriate bot info in `config.json`.
+4. Run `npm run deployCommands` to deploy slash commands.
+5. To run the bot, you can either run `npm start` to start the bot, or create a **Docker** container:
+   1. Install Docker
+   2. From the source code folder, open a terminal and enter this commandline command: `docker build -t discord-bot .`
+   3. Run the built Docker image by running `docker run -d --restart on-failure:3 discord-bot`
 
-And youre done! Keep in mind if using global slash commands may take up to an hour to become available whilst guild commands are immediate though.
+And youre done! This bot uses guild slash commands instead of global slash commands. Go to `deployCommands.js` to change between slash command types. 
+Keep in mind if using global slash commands it may take up to an hour to become available whilst guild commands are immediate though.
+
 
 **If tracking changelogging:** 
-- Follow [Conventional Commit Specifications](https://www.conventionalcommits.org/en/v1.0.0/) when committing. 
-- Run `npm run release` to convert git commits into a readable changelog in CHANGELOG.md.
+- Follow [Conventional Commit Specifications](https://www.conventionalcommits.org/en/v1.0.0/) when committing.
