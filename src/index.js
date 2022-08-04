@@ -1,9 +1,9 @@
 const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
-const { token } = require('../config.json');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { clientToken } = require('../config.json');
 
 const client = new Client({
-	intents: [Intents.FLAGS.GUILDS]
+	intents: [GatewayIntentBits.Guilds]
 });
 
 // Commands
@@ -26,4 +26,4 @@ for (const file of eventFiles) {
 	}
 }
 
-client.login(token);
+client.login(clientToken);
