@@ -7,23 +7,22 @@ const commands = [];
 const commandFiles = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`../commands/${file}`);
-	commands.push(command.data.toJSON());
+    const command = require(`../commands/${file}`);
+    commands.push(command.data.toJSON());
 }
 
 const rest = new REST({ version: '9' }).setToken(clientToken);
 
 (async () => {
-	try {
-		await rest.put(
-			Routes.applicationGuildCommands(clientId, guildId), // <-- Guild version
-			// Routes.applicationCommands(clientId), // <-- Global version
-			{ body: commands },
-		);
-
-		console.log('Successfully registered application commands.');
-	}
-	catch (error) {
-		console.error(`deployCommands.js error\n${error}`);
-	}
+    try {
+        await rest.put(
+            Routes.applicationGuildCommands(clientId, guildId), // <-- Guild version
+            // Routes.applicationCommands(clientId), // <-- Global version
+            { body: commands },
+        );
+        console.log('Successfully registered application commands.');
+    }
+    catch (error) {
+        console.error(`deployCommands.js error\n${error}`);
+    }
 })();
